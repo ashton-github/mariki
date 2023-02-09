@@ -21,6 +21,37 @@ curl --location --request POST 'localhost:8080/api/auth/signin' \
 }'
 ```
 
+### User administration.
+```
+curl --location --request GET 'localhost:8080/api/user/getAll' \
+--header 'Content-Type: application/json; charset=utf-8' \
+--header 'Authorization: Bearer token'
+```
+
+```
+curl --location --request GET 'localhost:8080/api/user/getById/{id}' \
+--header 'Content-Type: application/json; charset=utf-8' \
+--header 'Authorization: Bearer token'
+```
+
+```
+curl --location --request PUT 'localhost:8080/api/user/modify/3' \
+--header 'Content-Type: application/json; charset=utf-8' \
+--header 'Authorization: Bearer token' \
+--data-raw '{
+    "firstName" : "new firstName",
+    "lastName"  : "new lastName",
+    "password"  : "new password"
+}'
+```
+
+```
+curl --location --request DELETE 'localhost:8080/api/user/delete/22' \
+--header 'Content-Type: application/json; charset=utf-8' \
+--header 'Authorization: Bearer token'
+```
+
+
 ### Dependency
 – If you want to use PostgreSQL:
 ```xml
